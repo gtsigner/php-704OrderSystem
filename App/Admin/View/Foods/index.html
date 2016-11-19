@@ -1,0 +1,55 @@
+<extend name="Common/base"/>
+<block name="body">
+    <style>
+        .widget-title {
+            height: 60px;
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="widget-box">
+            <div class="widget-title"><span class="icon"> <i class="icon-th"></i> </span>
+                <h5>菜品列表</h5>
+                <a class="label label-info" href="{:U('Foods/add')}">添加</a></div>
+            <div class="widget-content ">
+                <table class="table table-bordered table-striped with-check">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>菜品名称</th>
+                        <th>口味备注</th>
+                        <th>菜品价格</th>
+                        <th>图</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-center">
+                    <empty name="_data">
+                        <tr>
+                            <td colspan="10">
+                                <label class="text text-error text-center">对不起没有数据</label>
+                            </td>
+                        </tr>
+                    </empty>
+                    <volist name="_data" id="vo">
+                        <tr>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.name}</td>
+                            <td>{$vo.mark}</td>
+                            <td>{$vo.price}</td>
+                            <td><img src="__ROOT__/{$vo.img_path}" style="height: 50px;width: 50px;"></td>
+                            <td>{$vo.status}</td>
+                            <td>
+                                <a class="btn btn-sm" href="{:u('del',array('id'=>$vo['id']))}">删除</a>
+                                <a class="btn btn-sm" href="{:u('update',array('id'=>$vo['id']))}">修改</a>
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+
+                </table>
+                <div class="pagelist">{$_page}</div>
+            </div>
+        </div>
+    </div>
+</block>

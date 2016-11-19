@@ -1,0 +1,28 @@
+<extend name="Common/base"/>
+<block name="body">
+    <div class="container">
+        <form class="col-md-4 col-md-offset-4" action="__SELF__" method="post">
+            <input type="hidden" value="{$detail.id}" name="id">
+            <div class="form-group">
+                <label>服务员终端用户名：</label>
+                <input type="text" name="username" class="form-control" value="{$waiter.username}"/>
+            </div>
+            <div class="form-group">
+                <label>登陆终端密码：</label>
+                <input type="text" name="password" class="form-control" value="{$waiter.password}"/>
+            </div>
+            <div class="form-group">
+                <label>姓名：</label>
+                <input type="text" name="user_name" class="form-control" value="{$waiter.user_name}"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">电话号码:</label>
+                <input type="text" name="user_phone" class="form-control" value="{$waiter.user_phone}"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="提交" class="btn btn-block btn-success"/>
+            </div>
+        </form>
+        <a href="{:U('adminer/index')}">返回列表</a>
+    </div>
+</block>

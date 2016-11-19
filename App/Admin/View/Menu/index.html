@@ -1,0 +1,55 @@
+<extend name="Common/base"/>
+<block name="body">
+    <style>
+        .with-check tbody tr td {
+            text-align: center;
+        }
+         .pagelist{ text-align:center; background:#f1f1f1; padding:7px 0;}
+    .pagelist a{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; background:#fff; color:#6185a2;}
+    .pagelist span{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; color:#6185a2; color:#fff; background:#6185a2;}
+    </style>
+    <div class="container-fluid">
+        <div class="widget-box">
+            <div class="widget-title"><span class="icon"> <i class="icon-th"></i> </span>
+                <h5>菜单</h5>
+                <a class="label label-info" href="{:U('Menu/add')}">添加菜品</a></div>
+            <div class="widget-content ">
+                <table class="table table-bordered table-striped with-check">
+                    <thead>
+                    <tr>
+                        <th style="width: 100px;">ID</th>
+                        <th>菜名</th>
+                        <th>价格</th>
+                        <th>出售数量</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-center">
+                    <empty name="adminerList">
+                        <tr>
+                            <td colspan="10">
+                                <label class="text text-error text-center">对不起没有数据</label>
+                            </td>
+                        </tr>
+                    </empty>
+                    <volist name="adminerList" id="vo">
+                        <tr>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.name}</td>
+                            <td>{$vo.price}</td>
+                            <td>{$vo.sort}</td>
+                            <td>{$vo.status}</td>
+                            <td>
+                                <a class="btn" href="{:u('Menu/del',array('id'=>$vo['id']))}">删除</a>|
+                                <a class="btn" href="{:u('Adminer/update',array('id'=>$vo['id']))}">修改</a>
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+                <div class="pagelist">{$page}</div>
+            </div>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,68 @@
+<extend name="Common/base"/>
+<block name="body">
+    <style>
+        .widget-title {
+            height: 60px;
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="widget-box">
+            <div class="widget-title"><span class="icon"> <i class="icon-th"></i> </span>
+                <h5>订单列表</h5>
+                <div class="widget-content ">
+                    <table class="table table-bordered table-striped with-check">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>订单号</th>
+                            <th>桌号</th>
+                            <th>服务员</th>
+                            <th>菜单</th>
+                            <th>消费</th>
+                            <th>申请时间</th>
+                            <th>状态</th>
+                            <th>结束时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        <empty name="_data">
+                            <tr>
+                                <td colspan="10">
+                                    <label class="text text-error text-center">对不起没有数据</label>
+                                </td>
+                            </tr>
+                        </empty>
+                        <volist name="_data" id="vo">
+                            <tr>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.order_no}</td>
+                                <td>{$vo.table_id}</td>
+                                <td>{$vo.user_name}</td>
+                                <php>
+                                    $menus=json_decode($vo['menus'],true);
+                                </php>
+                                <td>
+                                    <ul style="list-style: none;">
+                                        <volist name="menus" id="mVo">
+                                            <li style="padding: 0px;margin: 0px">{$mVo.name}【{$mVo.count}】</li>
+                                        </volist>
+                                    </ul>
+                                </td>
+                                <td>{$vo.money}</td>
+                                <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                                <td>{$vo.status}</td>
+                                <td>{$vo.end_time|date="Y-m-d H:i:s",###}</td>
+                                <td>
+                                    <a class="btn btn-sm" href="{:u('del',array('id'=>$vo['id']))}">删除</a>
+                                    <a class="btn btn-sm" href="{:u('update',array('id'=>$vo['id']))}">修改</a>
+                                </td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                    <div class="pagelist">{$_page}</div>
+                </div>
+            </div>
+        </div>
+</block>

@@ -1,0 +1,26 @@
+推荐PHP服务端运行环境：
+    php+study
+
+
+Server是由 thinkphp+mysql完成的
+
+RESTful 接口 Api模块
+
+
+客户端是android，使用Android Studio开发
+
+
+安装服务端：
+    导入mysql文件
+    配置App/Common/Conf/config.php 配置数据库
+
+安装客户端：
+    Android中Webconfig 配置Api
+
+
+
+准备软件：
+    PHPStudy
+    Phpstrom
+    Android Studio
+    Mysql-font

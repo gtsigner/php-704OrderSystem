@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title></title>
+    <link href="__PUBLIC__/admin/css/general.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="__PUBLIC__/admin/js/global.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/js/utils.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/js/transport.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/bootstrap.css"/>
+    <style type="text/css">
+        .list-group .list-group-item {
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="main-div">
+    <div id="menu-list">
+        <ul class="list-group">
+            <li>
+                <a href="{:u('Adminer/index')}" class="list-group-item" target="main-frame">服务员</a></li>
+            <li>
+                <a href="{:u('Desk/index')}" class="list-group-item" target="main-frame">桌子位</a></li>
+            <li>
+                <a href="{:u('Foods/index')}" class="list-group-item" target="main-frame">菜单管理</a></li>
+            <li>
+                <a href="{:u('Order/index')}" class="list-group-item" target="main-frame">订单管理</a></li>
+            <li>
+                <a href="{:u('Order/waiterLogs')}" class="list-group-item" target="main-frame">数据统计</a></li>
+            <li>
+                <a href="{:u('public/logout')}" class="list-group-item" target="main-frame">退出登陆</a></li>
+        </ul>
+    </div>
+    <div id="help-div" style="display:none">
+        <h1></h1>
+        <div id="help-content"></div>
+    </div>
+</div>
+</body>
+</html>

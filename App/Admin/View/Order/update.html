@@ -1,0 +1,24 @@
+<extend name="Common/base"/>
+<block name="body">
+    <div class="container">
+        <form class="col-md-4 col-md-offset-4" action="__SELF__" method="post">
+            <input type="hidden" value="{$detail.id}" name="id">
+            <div class="form-group">
+                <label>菜品名称：</label>
+                <input type="text" name="name" value="{$detail.name}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>口味备注：</label>
+                <textarea name="mark" value="{$detail.mark}" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>价格：</label>
+                <input type="number" name="price" value="{$detail.price}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="提交" class="btn btn-block btn-success"/>
+            </div>
+        </form>
+        <a href="{:U('index')}">返回列表</a>
+    </div>
+</block>
